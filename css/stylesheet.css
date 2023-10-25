@@ -124,3 +124,27 @@ body {
     text-align: center;
     padding: 20px 0;
 }
+
+/* Define a CSS class for the product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+/* Define a CSS class for product items */
+.product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+/* Define a CSS class for the description container */
+.description-container {
+    max-height: 80px; /* Adjust the height as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
