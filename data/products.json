@@ -4,63 +4,63 @@
       "name": "Affirmations Audio File",
       "description": "Boost your positivity with this affirmations audio file. Listen and reprogram your mind for success.",
       "price": 50,
-      "image": "assets/affirmations-audio.jpg"
+      "image": "assets/1.png"
     },
     {
       "id": 2,
       "name": "Bible Affirmations",
       "description": "Discover the power of positive affirmations with this comprehensive e-book. Unlock your full potential.",
       "price": 100,
-      "image": "assets/affirmations-ebook.jpg"
+      "image": "assets/2.png"
     },
     {
       "id": 3,
-      "name": "E-Course",
+      "name": "YouTube Intro Template",
       "description": "Master essential skills with our E-Course. Learn at your own pace and enhance your career.",
       "price": 500,
-      "image": "assets/e-course.jpg"
+      "image": "assets/3.png"
     },
     {
       "id": 4,
-      "name": "“I am Blessed” T-Shirt Design",
-      "description": "Show your positivity with this stylish 'I am Blessed' t-shirt design. Wear your affirmation.",
+      "name": "“All Things Are Possible” T-Shirt Design",
+      "description": "Show your positivity with this stylish 'All Things Are Possible' t-shirt design. Wear your affirmation.",
       "price": 200,
-      "image": "assets/i-am-blessed-tshirt.jpg"
+      "image": "assets/4.png"
     },
     {
       "id": 5,
       "name": "Resume Template",
       "description": "Craft a professional resume with our customizable template. Impress employers and land your dream job.",
       "price": 100,
-      "image": "assets/resume-template.jpg"
+      "image": "assets/5.png"
     },
     {
       "id": 6,
       "name": "Business Card Template",
       "description": "Design sleek business cards with our template. Make a lasting impression with your clients.",
       "price": 100,
-      "image": "assets/business-card-template.jpg"
+      "image": "assets/6.png"
     },
     {
       "id": 7,
       "name": "M-pesa Payment Plugin",
       "description": "Integrate M-pesa payments into your website or app effortlessly with our plugin. Streamline transactions.",
       "price": 1000,
-      "image": "assets/mpesa-plugin.jpg"
+      "image": "assets/7.png"
     },
     {
       "id": 8,
       "name": "Prayer Journal Template",
       "description": "Strengthen your spirituality with our prayer journal template. Reflect and connect with the divine.",
       "price": 500,
-      "image": "assets/prayer-journal-template.jpg"
+      "image": "assets/8.png"
     },
     {
       "id": 9,
       "name": "Planner Template",
       "description": "Stay organized and boost productivity with our planner template. Plan your day with purpose.",
       "price": 500,
-      "image": "assets/planner-template.jpg"
+      "image": "assets/9.png"
     }
   ]
   
