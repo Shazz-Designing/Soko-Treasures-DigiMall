@@ -14,13 +14,13 @@ fetch('./data/products.json')
       productElement.innerHTML = `
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <p>Price: $${product.price.toFixed(2)}</p>
+        <p>Price: Ksh ${product.price.toFixed(2)}</p>
         <img src="${product.image}" alt="${product.name}">
       `;
       productContainer.appendChild(productElement);
     });
   })
-  
+
   .catch(error => {
     console.error('Error loading JSON data: ', error);
   });
