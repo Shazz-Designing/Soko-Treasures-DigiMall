@@ -20,3 +20,39 @@ fetch('./data/products.json')
   .catch(error => {
     console.error('Error loading JSON data: ', error);
   });
+
+
+    // Shopping Cart Data Structure
+    let shoppingCart = [];
+
+    // Add an Event Listener
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+        addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+    // Create the addToCart Function
+    function addToCart(event) {
+        // Get product information from the clicked button's data attributes or other sources
+        const productId = event.target.getAttribute('data-product-id');
+        const productName = event.target.getAttribute('data-product-name');
+        const productPrice = parseFloat(event.target.getAttribute('data-product-price'));
+    
+        // Check if the product is already in the cart
+        const existingProduct = shoppingCart.find(item => item.id === productId);
+    
+        if (existingProduct) {
+            // If the product is already in the cart, increase its quantity
+            existingProduct.quantity++;
+        } else {
+            // If it's a new product, add it to the cart
+            shoppingCart.push({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: 1,
+            });
+        }
+    
+    }
+    
