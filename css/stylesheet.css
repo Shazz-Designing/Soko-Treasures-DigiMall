@@ -103,13 +103,26 @@ body {
     margin-bottom: 20px;
 }
 
-.btn-primary {
+.btn-primary, .add-to-cart-button {
     background-color: #ff6600;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     text-decoration: none;
+}
+
+.add-to-cart-button {
+    cursor: pointer;
+    font-family: 'Maiandra GD', sans-serif;
+    font-size: 1.1rem; 
+   
+
+}
+
+/* Add hover effect for the buttons */
+.btn-primary:hover , .add-to-cart-button:hover {
+    background-color:#651d46;
 }
 
 .products {

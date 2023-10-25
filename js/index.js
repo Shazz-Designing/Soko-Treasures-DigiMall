@@ -14,7 +14,27 @@ fetch('./data/products.json')
         <p>Price: Ksh ${product.price.toFixed(2)}</p>
         <img src="${product.image}" alt="${product.name}">
       `;
-      productGrid.appendChild(productElement);
+
+    // Create an "Add to Cart" button for each product
+    const addToCartButton = document.createElement('button');
+    addToCartButton.textContent = 'Add to Cart';
+    addToCartButton.classList.add('add-to-cart-button');
+    addToCartButton.setAttribute('data-product-id', product.id);
+    addToCartButton.setAttribute('data-product-name', product.name);
+    addToCartButton.setAttribute('data-product-price', product.price);
+    
+    // Append the button to the product element
+    productElement.appendChild(addToCartButton);
+
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+});
+
+    
+
+    productGrid.appendChild(productElement);
+
     });
   })
   .catch(error => {
