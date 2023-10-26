@@ -15,28 +15,28 @@ fetch('./data/products.json')
         <img src="${product.image}" alt="${product.name}">
       `;
 
-    // Create an "Add to Cart" button for each product
-    const addToCartButton = document.createElement('button');
-    addToCartButton.textContent = 'Add to Cart';
-    addToCartButton.classList.add('add-to-cart-button');
-    addToCartButton.setAttribute('data-product-id', product.id);
-    addToCartButton.setAttribute('data-product-name', product.name);
-    addToCartButton.setAttribute('data-product-price', product.price);
-    
-    // Append the button to the product element
-    productElement.appendChild(addToCartButton);
+      // Create an "Add to Cart" button for each product
+      const addToCartButton = document.createElement('button');
+      addToCartButton.textContent = 'Add to Cart';
+      addToCartButton.classList.add('add-to-cart-button');
+      addToCartButton.setAttribute('data-product-id', product.id);
+      addToCartButton.setAttribute('data-product-name', product.name);
+      addToCartButton.setAttribute('data-product-price', product.price);
 
+      // Append the button to the product element
+      productElement.appendChild(addToCartButton);
+
+      // Append the product to the grid
+      productGrid.appendChild(productElement);
+    });
+    
+    // Add event listeners to the "Add to Cart" buttons after creating them
     const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', addToCart);
-});
-
-    
-
-    productGrid.appendChild(productElement);
-
+      button.addEventListener('click', addToCart);
     });
   })
+  
   .catch(error => {
     console.error('Error loading JSON data: ', error);
   });
@@ -75,4 +75,26 @@ fetch('./data/products.json')
         }
     
     }
+
+    function updateCartDisplay() {
+        const cartItems = document.querySelector('.cart-items');
+        cartItems.innerHTML = ''; // Clear previous cart items
+    
+        let total = 0;
+    
+        shoppingCart.forEach(item => {
+            // Create a list item for each cart item
+            const cartItem = document.createElement('li');
+            cartItem.classList.add('cart-item'); // Apply CSS class for styling
+            cartItem.textContent = `${item.name} x${item.quantity} - Ksh ${(item.price * item.quantity).toFixed(2)}`;
+            cartItems.appendChild(cartItem);
+    
+            total += item.price * item.quantity;
+        });
+    
+        // Update the total price
+        const cartTotal = document.getElementById('cart-total');
+        cartTotal.textContent = total.toFixed(2);
+    }
+    
     
