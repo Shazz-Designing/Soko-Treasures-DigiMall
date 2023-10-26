@@ -26,75 +26,46 @@ fetch('./data/products.json')
       // Append the button to the product element
       productElement.appendChild(addToCartButton);
 
+      // Add an event listener to each "Add to Cart" button
+      addToCartButton.addEventListener('click', addToCart);
+
       // Append the product to the grid
       productGrid.appendChild(productElement);
     });
-    
-    // Add event listeners to the "Add to Cart" buttons after creating them
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', addToCart);
-    });
   })
-  
   .catch(error => {
     console.error('Error loading JSON data: ', error);
   });
 
+// Shopping Cart Data Structure
+let shoppingCart = [];
 
-    // Shopping Cart Data Structure
-    let shoppingCart = [];
+// Create the addToCart Function
+function addToCart(event) {
+  // Get product information from the clicked button's data attributes or other sources
+  const productId = event.target.getAttribute('data-product-id');
+  const productName = event.target.getAttribute('data-product-name');
+  const productPrice = parseFloat(event.target.getAttribute('data-product-price'));
 
-    // Add an Event Listener
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-        addToCartButtons.forEach(button => {
-        button.addEventListener('click', addToCart);
+  // Check if the product is already in the cart
+  const existingProduct = shoppingCart.find(item => item.id === productId);
+
+  if (existingProduct) {
+    // If the product is already in the cart, increase its quantity
+    existingProduct.quantity++;
+  } else {
+    // If it's a new product, add it to the cart
+    shoppingCart.push({
+      id: productId,
+      name: productName,
+      price: productPrice,
+      quantity: 1,
     });
+  }
 
-    // Create the addToCart Function
-    function addToCart(event) {
-        // Get product information from the clicked button's data attributes or other sources
-        const productId = event.target.getAttribute('data-product-id');
-        const productName = event.target.getAttribute('data-product-name');
-        const productPrice = parseFloat(event.target.getAttribute('data-product-price'));
-    
-        // Check if the product is already in the cart
-        const existingProduct = shoppingCart.find(item => item.id === productId);
-    
-        if (existingProduct) {
-            // If the product is already in the cart, increase its quantity
-            existingProduct.quantity++;
-        } else {
-            // If it's a new product, add it to the cart
-            shoppingCart.push({
-                id: productId,
-                name: productName,
-                price: productPrice,
-                quantity: 1,
-            });
-        }
-    
-    }
+  // Display a confirmation message 
+  alert(`${productName} Added to the cart`);
 
-    function updateCartDisplay() {
-        const cartItems = document.querySelector('.cart-items');
-        cartItems.innerHTML = ''; // Clear previous cart items
-    
-        let total = 0;
-    
-        shoppingCart.forEach(item => {
-            // Create a list item for each cart item
-            const cartItem = document.createElement('li');
-            cartItem.classList.add('cart-item'); // Apply CSS class for styling
-            cartItem.textContent = `${item.name} x${item.quantity} - Ksh ${(item.price * item.quantity).toFixed(2)}`;
-            cartItems.appendChild(cartItem);
-    
-            total += item.price * item.quantity;
-        });
-    
-        // Update the total price
-        const cartTotal = document.getElementById('cart-total');
-        cartTotal.textContent = total.toFixed(2);
-    }
-    
-    
+  // Update the cart display
+  updateCartDisplay();
+}
