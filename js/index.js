@@ -1,4 +1,4 @@
-// Fetch the JSON data
+// JavaScript to fetch and display products
 fetch('./data/products.json')
   .then(response => response.json())
   .then(data => {
@@ -68,4 +68,26 @@ function addToCart(event) {
 
   // Update the cart display
   updateCartDisplay();
+}
+
+// Function to update the cart display
+function updateCartDisplay() {
+  const cartItems = document.querySelector('.cart-items');
+  cartItems.innerHTML = ''; // Clear previous cart items
+
+  let total = 0;
+
+  shoppingCart.forEach(item => {
+    // Create a list item for each cart item
+    const cartItem = document.createElement('li');
+    cartItem.classList.add('cart-item'); // Apply CSS class for styling
+    cartItem.textContent = `${item.name} x${item.quantity} - Ksh ${(item.price * item.quantity).toFixed(2)}`;
+    cartItems.appendChild(cartItem);
+
+    total += item.price * item.quantity;
+  });
+
+  // Update the total price
+  const cartTotal = document.getElementById('cart-total');
+  cartTotal.textContent = total.toFixed(2);
 }

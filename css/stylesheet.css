@@ -28,7 +28,7 @@ body {
     color: #fff;
     padding: 10px;
     display: flex;
-    justify-content: center; /* Center the items horizontally */
+    justify-content: center;
     align-items: center;
     margin: auto;
 }
@@ -46,7 +46,6 @@ body {
     display: flex;
     align-items: center;
 }
-
 
 .navbar a:hover {
     color: #ff6600;
@@ -74,24 +73,21 @@ body {
     font-size: 22px;
 }
 
-
 #checkout-button {
     margin: 10px 10px;
     font-family: 'Maiandra GD', sans-serif;
     font-size: 1.1rem; 
 }
 
-
 .container {
-    margin: auto
+    margin: auto;
 }
-
 
 .hero {
     background-size: cover;
     color: #fff;
     text-align: center;
-    padding: 70px 20px; /* Adjust the left and right padding as needed */
+    padding: 70px 20px;
 }
 
 .hero h1 {
@@ -115,16 +111,14 @@ body {
 .add-to-cart-button {
     cursor: pointer;
     font-family: 'Maiandra GD', sans-serif;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     position: relative;
-    top: -125px; 
-   
-
+    top: -125px;
 }
 
 /* Add hover effect for the buttons */
 .btn-primary:hover , .add-to-cart-button:hover {
-    background-color:#651d46;
+    background-color: #651d46;
 }
 
 .products {
@@ -143,8 +137,8 @@ body {
 /* Define a CSS class for the product grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-    gap: 20px; /* Adjust the gap as needed */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 /* Define a CSS class for product items */
@@ -152,14 +146,35 @@ body {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
-    
 }
 
 /* Define a CSS class for the description container */
 .description-container {
-    max-height: 80px; /* Adjust the height as needed */
+    max-height: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+/* Hide sidecart initially */
+.sidebar-cart {
+    display: none;
+    width: 300px;
+    background-color:#fd60b9;
+    /* Add more styling as needed */
+}
 
+.floating-cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+#view-cart-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
