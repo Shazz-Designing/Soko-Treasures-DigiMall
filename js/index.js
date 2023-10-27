@@ -114,10 +114,15 @@ function removeFromCart(event) {
   }
 }
 
-// Add event listeners for product addition and modal display
 document.addEventListener('DOMContentLoaded', function () {
   // Call the fetchAndDisplayProducts function to fetch and display products
   fetchAndDisplayProducts();
+
+  // Define modalElement outside the event listener
+  const modalElement = document.getElementById('cartModal');
+  const customModal = new bootstrap.Modal(modalElement, {
+    backdrop: false, // Remove the backdrop
+  });
 
   // Add a click event listener to the "View Cart" button
   const viewCartButton = document.getElementById('view-cart-button');
@@ -125,11 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Call the updateCartDisplay function to update the cart content
     updateCartDisplay();
 
-    // Open the modal using Bootstrap's modal method
-    const modal = new bootstrap.Modal(document.getElementById('cartModal'));
-    const customModal = new bootstrap.Modal(modalElement, {
-      backdrop: false, // Remove the backdrop
-    });
-    modal.show();
+    // Show the modal
+    customModal.show();
   });
 });
+
