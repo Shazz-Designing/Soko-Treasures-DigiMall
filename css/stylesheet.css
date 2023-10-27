@@ -113,7 +113,7 @@ body {
     font-family: 'Maiandra GD', sans-serif;
     font-size: 1.1rem;
     position: relative;
-    top: -125px;
+    top: -30px;
 }
 
 /* Add hover effect for the buttons */
@@ -177,4 +177,9 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.total-cost, .cart-items {
+    color: black;
+    margin: 5px;
 }
