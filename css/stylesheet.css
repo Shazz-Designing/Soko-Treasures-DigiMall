@@ -183,3 +183,9 @@ body {
     color: black;
     margin: 5px;
 }
+
+.cart-items .cart-item .remove-button{
+    margin-bottom: 10px; /* Adjust the value to control the spacing between individual cart items */
+    margin-left:10px;
+  }
+  
