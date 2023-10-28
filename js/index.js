@@ -133,5 +133,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // Show the modal
     customModal.show();
   });
+
+  // Get the checkout button elements by their respective ids
+  const checkoutButton1 = document.getElementById("checkoutButton1");
+  const checkoutButton2 = document.getElementById("checkoutButton2");
+
+  // Add click event listeners to the buttons
+  checkoutButton1.addEventListener("click", function() {
+      const dataAction = checkoutButton1.getAttribute("data-action");
+      if (dataAction === "checkout") {
+          alert("Performing checkout action 1!");
+      }
+  });
+
+  checkoutButton2.addEventListener("click", function() {
+      const dataAction = checkoutButton2.getAttribute("data-action");
+      if (dataAction === "checkout") {
+          alert("Performing checkout action 2!");
+      }
+  });
 });
+
 

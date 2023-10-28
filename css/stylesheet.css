@@ -179,6 +179,15 @@ body {
     cursor: pointer;
 }
 
+#checkoutButton1 {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 .total-cost, .cart-items {
     color: black;
     margin: 5px;
