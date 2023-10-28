@@ -138,20 +138,41 @@ document.addEventListener('DOMContentLoaded', function () {
   const checkoutButton1 = document.getElementById("checkoutButton1");
   const checkoutButton2 = document.getElementById("checkoutButton2");
 
-  // Add click event listeners to the buttons
-  checkoutButton1.addEventListener("click", function() {
-      const dataAction = checkoutButton1.getAttribute("data-action");
-      if (dataAction === "checkout") {
-          alert("Performing checkout action 1!");
-      }
-  });
-
-  checkoutButton2.addEventListener("click", function() {
-      const dataAction = checkoutButton2.getAttribute("data-action");
-      if (dataAction === "checkout") {
-          alert("Performing checkout action 2!");
-      }
-  });
 });
+
+// Check the cart total value
+const cartTotal = parseFloat(document.getElementById("cart-total").textContent);
+    
+// Select the buttons and the email input modal
+const viewCartButton = document.getElementById("view-cart-button");
+const checkoutButton1 = document.getElementById("checkoutButton1");
+const emailModal = new bootstrap.Modal(document.getElementById("emailModal"));
+const sendEmailButton = document.getElementById("sendEmailButton");
+const emailInput = document.getElementById("emailInput");
+
+// Add a click event listener to the checkout button
+checkoutButton1.addEventListener("click", function() {
+    const cartTotalText = document.getElementById("cart-total").textContent;
+    const cartTotalValue = parseFloat(cartTotalText.replace('Ksh ', '').replace(/,/g, '')); // Remove 'Ksh ' and parse to a float
+
+    if (cartTotalValue === 0) {
+        alert("Please add an item to the cart.");
+    } else {
+        // Open the email input modal
+        emailModal.show();
+    }
+});
+
+// Add a click event listener to the send email button
+sendEmailButton.addEventListener("click", function() {
+    const emailAddress = emailInput.value;
+    // Add your logic to send the download link to the entered email address
+    // You can use AJAX or a server-side script for this.
+    alert("Email sent to " + emailAddress);
+    // Close the email input modal
+    emailModal.hide();
+});
+
+
 
 
