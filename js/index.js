@@ -134,45 +134,65 @@ document.addEventListener('DOMContentLoaded', function () {
     customModal.show();
   });
 
-  // Get the checkout button elements by their respective ids
+  // Add a click event listener to the checkout buttons
   const checkoutButton1 = document.getElementById("checkoutButton1");
   const checkoutButton2 = document.getElementById("checkoutButton2");
 
-});
+  checkoutButton1.addEventListener("click", function() {
+    handleCheckout();
+    // Close the cart modal
+    const cartModal = new bootstrap.Modal(document.getElementById("cartModal"));
+    cartModal.hide();
+  });
+
+  checkoutButton2.addEventListener("click", function() {
+    handleCheckout();
+    // Close the cart modal
+    const cartModal = new bootstrap.Modal(document.getElementById("cartModal"));
+    cartModal.hide();
+  });
+
 
 // Check the cart total value
 const cartTotal = parseFloat(document.getElementById("cart-total").textContent);
     
 // Select the buttons and the email input modal
-const viewCartButton = document.getElementById("view-cart-button");
-const checkoutButton1 = document.getElementById("checkoutButton1");
 const emailModal = new bootstrap.Modal(document.getElementById("emailModal"));
 const sendEmailButton = document.getElementById("sendEmailButton");
 const emailInput = document.getElementById("emailInput");
 
-// Add a click event listener to the checkout button
-checkoutButton1.addEventListener("click", function() {
-    const cartTotalText = document.getElementById("cart-total").textContent;
-    const cartTotalValue = parseFloat(cartTotalText.replace('Ksh ', '').replace(/,/g, '')); // Remove 'Ksh ' and parse to a float
+// Create a function to handle the checkout process
+function handleCheckout() {
+  const cartTotalText = document.getElementById("cart-total").textContent;
+  const cartTotalValue = parseFloat(cartTotalText.replace('Ksh ', '').replace(/,/g, '')); // Remove 'Ksh ' and parse to a float
 
-    if (cartTotalValue === 0) {
-        alert("Please add an item to the cart.");
-    } else {
+  if (cartTotalValue === 0) {
+    alert("Please add an item to the cart.");
+  } else {
+        
+        // Reset the shoppingCart and update the display
+        shoppingCart = [];
+        updateCartDisplay();
+
+        // Add this code to clear the email input field when the email modal is shown
+emailModal.show();
+
+// Clear the email input field
+emailInput.value = '';
+        
         // Open the email input modal
         emailModal.show();
-    }
-});
+  }
+}
 
 // Add a click event listener to the send email button
 sendEmailButton.addEventListener("click", function() {
-    const emailAddress = emailInput.value;
-    // Add your logic to send the download link to the entered email address
-    // You can use AJAX or a server-side script for this.
-    alert("Email sent to " + emailAddress + " .Thank you for shopping at SOKO TREASURES DIGIMALL");
-    // Close the email input modal
-    emailModal.hide();
+  const emailAddress = emailInput.value;
+  // Add your logic to send the download link to the entered email address
+  // You can use AJAX or a server-side script for this.
+  alert("Email sent to " + emailAddress + ". Thank you for shopping at SOKO TREASURES DIGIMALL");
+  // Close the email input modal
+  emailModal.hide();
+
 });
-
-
-
-
+});
