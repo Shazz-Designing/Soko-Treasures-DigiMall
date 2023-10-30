@@ -124,6 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
     backdrop: false, // Remove the backdrop
   });
 
+  const viewCartModal = new bootstrap.Modal(document.getElementById("cartModal"));
+
   // Add a click event listener to the "View Cart" button
   const viewCartButton = document.getElementById('view-cart-button');
   viewCartButton.addEventListener('click', function() {
@@ -132,6 +134,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Show the modal
     customModal.show();
+
+
+
+
   });
 
   // Add a click event listener to the checkout buttons
@@ -190,9 +196,20 @@ sendEmailButton.addEventListener("click", function() {
   const emailAddress = emailInput.value;
   // Add your logic to send the download link to the entered email address
   // You can use AJAX or a server-side script for this.
-  alert("Email sent to " + emailAddress + ". Thank you for shopping at SOKO TREASURES DIGIMALL");
+
   // Close the email input modal
   emailModal.hide();
 
+  // Show the "Thank You" modal
+  const thankYouModal = new bootstrap.Modal(document.getElementById("thankYouModal"));
+  thankYouModal.show();
+});
+
+// Add an event listener to the "OK" button in the "Thank You" modal
+const okButton = document.getElementById("okButton");
+okButton.addEventListener("click", function() {
+  // Close the "Thank You" modal
+  const thankYouModal = new bootstrap.Modal(document.getElementById("thankYouModal"));
+  thankYouModal.hide();
 });
 });
