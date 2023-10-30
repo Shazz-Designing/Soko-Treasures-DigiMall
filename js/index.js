@@ -168,7 +168,7 @@ sendEmailButton.addEventListener("click", function() {
     const emailAddress = emailInput.value;
     // Add your logic to send the download link to the entered email address
     // You can use AJAX or a server-side script for this.
-    alert("Email sent to " + emailAddress);
+    alert("Email sent to " + emailAddress + " .Thank you for shopping at SOKO TREASURES DIGIMALL");
     // Close the email input modal
     emailModal.hide();
 });
