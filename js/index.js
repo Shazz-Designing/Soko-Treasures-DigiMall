@@ -1,3 +1,7 @@
+
+
+
+
 // Shopping Cart Data Structure
 let shoppingCart = [];
 
